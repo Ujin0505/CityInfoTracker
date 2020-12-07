@@ -43,7 +43,9 @@ namespace CityInfoTracker.Application
             {
                 Name = tempInfo.Name,
                 Temperature = tempInfo.Temp,
-                TimeZone =  timeZone
+                TimeZone =  timeZone,
+                Longtitude =  tempInfo.Longtitude,
+                Latitude = tempInfo.Latitude,
             };
         } 
 
