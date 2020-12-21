@@ -5,11 +5,12 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
+using CityInfoTracker.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
 
 namespace CityInfoTracker.Application
 {
-    public class TemperatureClient
+    public class TemperatureClient: ITemperatureClient
     {
         private readonly HttpClient _client;
         private string _key;

@@ -42,9 +42,10 @@ namespace CityInfoTracker
             }));
 
             
-            services.AddHttpClient<TimeZoneClient>();
-            services.AddHttpClient<TemperatureClient>();
+            services.AddHttpClient<ITimeZoneClient, TimeZoneClient>();
+            services.AddHttpClient<ITemperatureClient, TemperatureClient>();
             services.AddTransient<ICityInfoService, CityInfoService>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

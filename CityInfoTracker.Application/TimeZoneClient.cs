@@ -3,11 +3,12 @@ using System.Diagnostics.Contracts;
 using System.Globalization;
 using System.Net.Http;
 using System.Threading.Tasks;
+using CityInfoTracker.Application.Interfaces;
 using Microsoft.Extensions.Configuration;
 
 namespace CityInfoTracker.Application
 {
-    public class TimeZoneClient
+    public class TimeZoneClient: ITimeZoneClient
     {
         private readonly string _key;
         private readonly HttpClient _client;

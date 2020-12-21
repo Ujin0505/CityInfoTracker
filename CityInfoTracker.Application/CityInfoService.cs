@@ -11,14 +11,14 @@ namespace CityInfoTracker.Application
 {
     public class CityInfoService: ICityInfoService
     {
-        private readonly TemperatureClient _temperatureClient;
-        private readonly TimeZoneClient _timezoneClient;
+        private readonly ITemperatureClient _temperatureClient;
+        private readonly ITimeZoneClient _timeZoneClient;
         private readonly ApplicationDbContext _dbContext;
 
-        public CityInfoService(TemperatureClient temperatureClient, TimeZoneClient timeZoneClient, ApplicationDbContext dbContext)
+        public CityInfoService(ITemperatureClient temperatureClient, ITimeZoneClient timeZoneClient, ApplicationDbContext dbContext)
         {
             _temperatureClient = temperatureClient;
-            _timezoneClient = timeZoneClient;
+            _timeZoneClient = timeZoneClient;
             _dbContext = dbContext;
         }
 
@@ -78,7 +78,7 @@ namespace CityInfoTracker.Application
         }
         private async Task<string> GetTimeZone(double longtitude, double latitude)
         {
-            var data = await _timezoneClient.GetData(longtitude, latitude);
+            var data = await _timeZoneClient.GetData(longtitude, latitude);
             if (data == null) return null;
 
             try
